@@ -65,6 +65,25 @@ match: 'level:critical'
 match: 'statusCode:500|statusCode:403'
 ```
 
+### Syslog Stream
+You can send your logs to any other syslog server (or service, ex: [Papertrail](//papertrailapp.com) like this:
+
+```
+var logging = require('ghost-ignition').logging({
+    domain: 'example.com',
+    env: 'production',
+    mode: 'long',
+    level: 'info',
+    transports: ['file', 'syslog'],
+    rotation: {enabled: true, period: '1d', count: 10},
+    path: '/var/log',
+    syslog: {
+        name: 'systemname',
+        host: 'logsN.papertrailapp.com',
+        port: 12345
+    }
+})
+
 ### Utils
 
 ```
