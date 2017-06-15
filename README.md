@@ -83,6 +83,7 @@ var logging = require('ghost-ignition').logging({
         port: 12345
     }
 })
+```
 
 ### Utils
 
